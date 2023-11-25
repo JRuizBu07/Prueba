@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Prueba.Models.FCT>
+
+@{
+    ViewData["Title"] = "Buscar por Destinatario";
+}
+
+<h1>Giros</h1>
+
+<p>
+    <a asp-action="Create">Crear un giro</a>
+</p>
+
+<form asp-action="SearchDestFunc" class="form-group">
+    <div>
+        <label for="numero">Destinatario:</label>
+        <input type="text" id="destinatarioId" name="destinatarioId" class="form-control" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+

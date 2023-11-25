@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Prueba.Models.FCT>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Giros</h1>
+
+<p>
+    <a asp-action="Create">Crea uno nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DestinatarioId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destinatario)
+            </th>
+            <th>
+                Sucursal Destino
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRecaudo)
+            </th>
+            <th>
+                Sucursal Origen
+            </th>
+            <th>
+                Remitente Id
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remitente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinatarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destinatario!.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SucursalDestino!.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRecaudo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SucursalOrigen!.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item!.Remitente.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Codigo">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Codigo">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Codigo">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
